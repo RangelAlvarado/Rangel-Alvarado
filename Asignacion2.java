@@ -10,13 +10,32 @@ public class Asignacion2 {
     DecimalFormat df = new DecimalFormat("#.##");
     double velocidadLuz = 299792.458;
     double velocidadSonido = 0.331;
-    System.out.println("Inserte el tiempo prolongado X");
-    double x = Integer.parseInt(System.console().readLine());
-    System.out.println("Inserte el tiempo Y");
-    double y = Integer.parseInt(System.console().readLine());
-    System.out.println("Inserte el tiempo Z");
-    double z = Integer.parseInt(System.console().readLine());
-
+    double x = 0, y = 0, z = 0;
+    boolean error = true;
+    do try {
+      System.out.println("Inserte el tiempo prolongado X");
+      x = Integer.parseInt(System.console().readLine());
+      error = false;
+    } catch (NumberFormatException e) {
+      System.out.println("Debe ser un numero");
+      error = true;
+    } while (error);
+    do try {
+      System.out.println("Inserte el tiempo Y");
+      y = Integer.parseInt(System.console().readLine());
+      error = false;
+    } catch (NumberFormatException e) {
+      System.out.println("Debe ser un numero");
+      error = true;
+    } while (error);
+    do try {
+      System.out.println("Inserte el tiempo Z");
+      z = Integer.parseInt(System.console().readLine());
+      error = false;
+    } catch (NumberFormatException e) {
+      System.out.println("Debe ser un numero");
+      error = true;
+    } while (error);
     double desaceleracion = Desaceleracion(x, velocidadLuz);
     double kmRecorridos = KmRecorridos(desaceleracion, z, velocidadSonido);
 
