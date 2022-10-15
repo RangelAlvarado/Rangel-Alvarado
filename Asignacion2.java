@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 /**
  * Asignacion 2
  */
@@ -5,6 +7,7 @@
 public class Asignacion2 {
 
   public static void main(String[] args) {
+    DecimalFormat df = new DecimalFormat("#.##");
     double velocidadLuz = 299792.458;
     double velocidadSonido = 0.331;
     System.out.println("Inserte el tiempo prolongado X");
@@ -17,8 +20,10 @@ public class Asignacion2 {
     double desaceleracion = Desaceleracion(x, velocidadLuz);
     double kmRecorridos = KmRecorridos(desaceleracion, z, velocidadSonido);
 
-    System.out.println("La desaceleracion es de " + desaceleracion);
-    System.out.println("Kilometros recorridos fue de " + kmRecorridos);
+    System.out.println("La desaceleracion es de " + df.format(desaceleracion));
+    System.out.println(
+      "Kilometros recorridos fue de " + df.format(kmRecorridos)
+    );
   }
 
   private static double KmRecorridos(
